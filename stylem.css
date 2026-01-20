@@ -1,0 +1,574 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat', sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background-color: whitesmoke;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: white;
+}
+
+/* ================= HEADER ================= */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 60px;
+  background:#fff;
+  transition:.3s;
+}
+
+body.dark-mode header{
+  background:#5b5b5b;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.logo-img {
+  width: 70px;
+}
+
+nav a{
+  margin-left:28px;
+  text-decoration:none;
+  color:#444;
+  font-weight:600;
+  transition:.3s;
+}
+
+body.dark-mode nav a{
+  color:#ddd;
+}
+
+nav a:hover{
+  color:#888;
+}
+
+#datetime-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: inherit;
+}
+
+#modeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modeToggle img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  color: white;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 40px;        
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-left: 4px solid black;
+  padding-left: 10px;
+}
+
+body.dark-mode .section-title {
+  border-color: white;
+}
+
+/* ================= CARDS ================= */
+.articles {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 360px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px gray;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-mode .card-content button {
+  background-color: white;
+  color: black;
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info {
+  background: white;
+  color: black;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+body.dark-mode .contact-info {
+  background: #1e1e1e;
+  color: white;
+}
+
+.contact-info h2 {
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+/* ================= INFO GRID ================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ================= INFO CARD ================= */
+.info-card {
+  background: white;
+  color: black;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+body.dark-mode .info-card {
+  background: #2a2a2a;
+  color: white;
+}
+
+.info-card i {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+.info-card h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+body.dark-mode .info-card p {
+  color: #ccc;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= SOCIAL LINKS ================= */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  background: rgb(115, 115, 115);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-links a img {
+  width: 40px;
+  height: 40px;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  background: dimgray;
+}
+
+body.dark-mode .social-links a {
+  background: white;
+}
+
+body.dark-mode .social-links a:hover {
+  background: lightgray;
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form {
+  background: #e5e5e5;
+  color: black;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+body.dark-mode .contact-form {
+  background: #2a2a2a;
+  color: white;
+}
+
+.contact-form h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row input {
+  width: 100%;
+}
+
+input,
+textarea {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  background: white;
+  color: black;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #1e1e1e;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #222;
+}
+
+body.dark-mode .btn-submit {
+  background: white;
+  color: black;
+}
+
+body.dark-mode .btn-submit:hover {
+  background: lightgray;
+}
+
+.back-btn {
+  display: block;                 
+  width: fit-content;
+  margin: 40px auto 0;             
+  padding: 12px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 
+    background-color 0.3s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.back-btn:hover {
+  background-color: dimgray;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px gray;
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px gray;
+}
+
+body.dark-mode .back-btn {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .back-btn:hover {
+  background-color: lightgray;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin: 0;
+  text-align: center;
+  padding: 8px;
+  background-color: dimgray;
+  color: white;
+  margin-top: 40px;
+}
+
+/* ================= AUTH / LOGIN ================= */
+.auth-container {
+  background: #555;
+  padding: 40px 35px;
+  width: 320px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 100px auto;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(255,255,255,0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container-img {
+  width: 100%;
+  height: 100px;
+  object-fit: auto;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.auth-container h2 {
+  margin-bottom: 25px;
+  font-size: 20px;
+  color: #ddd;
+  font-weight: normal;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.auth-container input:focus {
+  box-shadow: 0 0 0 2px #aaa;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #777;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #000;
+  transform: translateY(-1px);
+}
+
+.auth-container a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.auth-container {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-links a img {
+    width: 30px;
+    height: 30px;
+  }
+}

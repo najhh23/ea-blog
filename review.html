@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EA SPORTS | Gaming Blog</title>
+  <link rel="stylesheet" href="stylez.css">
+
+</head>
+
+<body id="top" class="light-mode">
+
+<header>
+  <div class="nav-left">
+<a href="login.html">
+<img src="login.png" width="30" height="30">
+ </a>
+    <img src="logo.png" alt="EA SPORTS Logo" class="logo-img">
+    <h1><b><span class="logo-text">EA SPORTS | Gaming Blog</span></b></h1>
+  </div>
+
+  <nav>
+    <a href="review.html">Reviews</a>
+    <a href="games.html">Games</a>
+    <a href="video.html">Video</a>
+    <a href="about.html">Profile</a>
+  </nav>
+
+  <div class="nav-right">
+    <div id="datetime-container">
+      <span id="datetime"></span>
+      <button id="modeToggle">
+        <img id="modeIcon" src="dark.png" alt="mode">
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PAGE TITLE ================= -->
+<section class="page-title">
+    <h1>EA SPORTS Game Reviews</h1>
+    <p>Professional reviews of the latest EA SPORTS titles, curated by our editorial team.</p>
+</section>
+
+<!-- ================= FILTER BAR ================= -->
+<section class="filter-bar">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="football">Football</button>
+    <button class="filter-btn" data-category="racing">Racing</button>
+    <button class="filter-btn" data-category="basketball">Basketball</button>
+    <button class="filter-btn" data-category="nfl">NFL</button>
+</section>
+
+<!-- ================= REVIEW GRID ================= -->
+<section class="review-grid">
+
+    <!-- REVIEW CARD 1 -->
+    <div class="review-card football">
+        <img src="fc25.jpeg" alt="EA SPORTS FC 25 Cover">
+        <h3>EA SPORTS FC 25</h3>
+        <p class="rating">⭐⭐⭐⭐☆ (4.5 / 5)</p>
+        <p class="summary">
+            A refined football experience with smarter gameplay and deeper realism.
+        </p>
+        <button class="read-more-btn" onclick="openReview('fc25')">Read Review</button>
+    </div>
+
+    <!-- REVIEW CARD 2 -->
+    <div class="review-card racing">
+        <img src="f124.jpeg" alt="F1 24 Cover">
+        <h3>F1 24</h3>
+        <p class="rating">⭐⭐⭐⭐☆ (4.3 / 5)</p>
+        <p class="summary">
+            A technically polished racing experience built for realism and control.
+        </p>
+        <button class="read-more-btn" onclick="openReview('f124')">Read Review</button>
+    </div>
+
+    <!-- REVIEW CARD 3 -->
+    <div class="review-card nfl">
+        <img src="madden25.jpeg" alt="Madden NFL 25 Cover">
+        <h3>Madden NFL 25</h3>
+        <p class="rating">⭐⭐⭐⭐☆ (4.0 / 5)</p>
+        <p class="summary">
+            A dependable football simulation with steady improvements.
+        </p>
+        <button class="read-more-btn" onclick="openReview('madden25')">Read Review</button>
+    </div>
+
+    <!-- REVIEW CARD 4 -->
+    <div class="review-card basketball">
+        <img src="nbalive25.jpeg" alt="NBA Live 25 Cover">
+        <h3>NBA Live 25</h3>
+        <p class="rating">⭐⭐⭐⭐☆ (4.1 / 5)</p>
+        <p class="summary">
+            A solid basketball title with improved pacing and responsiveness.
+        </p>
+        <button class="read-more-btn" onclick="openReview('nbalive25')">Read Review</button>
+    </div>
+
+</section>
+
+<!-- ================= REVIEW MODAL ================= -->
+<div id="reviewModal" class="review-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeReview()">&times;</span>
+
+        <div id="modal-body">
+            <!-- Full review content will be injected by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<a href="index.html" class="back-btn"> Back Home </a>
+</main>
+
+<footer>
+  <h6><i>© 2026 | EA SPORTS Gaming Blog</i></h6>
+</footer>
+
+<a href="#top" class="back-to-top">↑</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= SCROLL SPY + BACK TO TOP ================= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const backToTop = document.querySelector(".back-to-top");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+    });
+
+    backToTop.classList.toggle("show", window.scrollY > 400);
+  });
+
+  /* ================= DATE & TIME ================= */
+  function updateDateTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+    const time = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    document.getElementById("datetime").textContent = `${date} ${time}`;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+  /* ================= DARK MODE ================= */
+  const toggle = document.getElementById("modeToggle");
+  const icon = document.getElementById("modeIcon");
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+
+    icon.src = document.body.classList.contains("dark-mode")
+      ? "light.png"
+      : "dark.png";
+  });
+
+});
+</script>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="review.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EA SPORTS | Gaming Blog</title>
+  <link rel="stylesheet" href="stylez.css">
+</head>
+
+<body id="top" class="light-mode">
+
+<header>
+  <div class="nav-left">
+<a href="login.html">
+<img src="login.png" width="30" height="30">
+ </a>
+    <img src="logo.png" alt="EA SPORTS Logo" class="logo-img">
+    <h1><b><span class="logo-text">EA SPORTS | Gaming Blog</span></b></h1>
+  </div>
+
+  <nav>
+    <a href="review.html">Reviews</a>
+    <a href="games.html">Games</a>
+    <a href="video.html">Video</a>
+    <a href="about.html">Profile</a>
+  </nav>
+
+
+  <div class="nav-right">
+    <div id="datetime-container">
+      <span id="datetime"></span>
+      <button id="modeToggle">
+        <img id="modeIcon" src="dark.png" alt="mode">
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PAGE TITLE ================= -->
+<section class="page-title">
+    <h1>EA SPORTS Video Hub</h1>
+    <p>Watch the latest trailers, gameplay footage, and official updates.</p>
+</section>
+
+<!-- ================= VIDEO TABS ================= -->
+<section class="video-tabs">
+    <button class="tab-btn active" data-category="all">All</button>
+    <button class="tab-btn" data-category="trailer">Trailers</button>
+    <button class="tab-btn" data-category="gameplay">Gameplay</button>
+    <button class="tab-btn" data-category="update">Updates</button>
+</section>
+
+<!-- ================= FEATURED VIDEO ================= -->
+<section class="featured-video">
+    <h2>Featured Video</h2>
+    <video controls>
+        <source src="fc25_trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="video-desc">
+        EA SPORTS FC 25 – Official Launch Trailer
+    </p>
+</section>
+
+<!-- ================= VIDEO GRID ================= -->
+<section class="video-grid">
+
+    <div class="video-card trailer">
+        <video controls>
+            <source src="f124_trailer.mp4" type="video/mp4">
+        </video>
+        <h3>F1 24 – Official Trailer</h3>
+        <p>High-speed racing action showcasing next-gen realism.</p>
+        <span class="video-meta">Category: Trailer | Curated by Zaf</span>
+    </div>
+
+    <div class="video-card gameplay">
+        <video controls>
+            <source src="fc25_gameplay.mp4" type="video/mp4">
+        </video>
+        <h3>EA SPORTS FC 25 – Gameplay</h3>
+        <p>In-depth look at match flow and player movement.</p>
+        <span class="video-meta">Category: Gameplay | Curated by Zaf</span>
+    </div>
+
+    <div class="video-card gameplay">
+        <video controls>
+            <source src="madden25_gameplay.mp4" type="video/mp4">
+        </video>
+        <h3>Madden NFL 25 – Gameplay Preview</h3>
+        <p>Enhanced AI and smoother play execution.</p>
+        <span class="video-meta">Category: Gameplay | Curated by Zaf</span>
+    </div>
+
+    <div class="video-card update">
+        <video controls>
+            <source src="nbalive25_update.mp4" type="video/mp4">
+        </video>
+        <h3>NBA Live 25 – Developer Update</h3>
+        <p>Insights into new features and gameplay improvements.</p>
+        <span class="video-meta">Category: Update | Curated by Zaf</span>
+    </div>
+
+</section>
+
+<a href="index.html" class="back-btn"> Back Home </a>
+</main>
+
+<footer>
+  <h6><i>© 2026 | EA SPORTS Gaming Blog</i></h6>
+</footer>
+
+<a href="#top" class="back-to-top">↑</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= SCROLL SPY + BACK TO TOP ================= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const backToTop = document.querySelector(".back-to-top");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+    });
+
+    backToTop.classList.toggle("show", window.scrollY > 400);
+  });
+
+  /* ================= DATE & TIME ================= */
+  function updateDateTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+    const time = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    document.getElementById("datetime").textContent = `${date} ${time}`;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+  /* ================= DARK MODE ================= */
+  const toggle = document.getElementById("modeToggle");
+  const icon = document.getElementById("modeIcon");
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+
+    icon.src = document.body.classList.contains("dark-mode")
+      ? "light.png"
+      : "dark.png";
+  });
+
+});
+</script>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="video.js"></script>
+
+</body>
+</html>
