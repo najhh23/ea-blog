@@ -1,0 +1,680 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat', sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background-color: whitesmoke;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: white;
+}
+
+/* ================= HEADER ================= */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 60px;
+  background:#fff;
+  transition:.3s;
+}
+
+body.dark-mode header{
+  background:#5b5b5b;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo-img {
+  width: 70px;
+}
+
+nav a{
+  margin-left:28px;
+  text-decoration:none;
+  color:#444;
+  font-weight:600;
+flex-wrap: nowrap;
+  transition:.3s;
+}
+
+body.dark-mode nav a{
+  color:#ddd;
+}
+
+nav a:hover{
+  color:#888;
+}
+
+#datetime-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: inherit;
+}
+
+#modeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modeToggle img {
+  width: 22px;
+  height: 22px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;      /* kekal */
+  gap: 18px;
+}
+
+/* ICON CONTAINER */
+.header-icons {
+  display: flex;
+  align-items: center;      /* 🔥 TAMBAH */
+  gap: 12px;
+}
+
+/* ICON LINK */
+.header-icons a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* ICON */
+.header-icons i {
+  font-size: 14px;
+  color: #000;
+}
+
+/* TARIKH / MASA (PENTING) */
+.header-right .date-time {
+  line-height: 1.2;         /* 🔥 INI KUNCI */
+  text-align: left;
+}
+
+/* HOVER */
+.header-icons a:hover {
+  background: #000;
+  transform: scale(1.1);
+}
+
+.header-icons a:hover i {
+  color: #fff;
+}
+
+
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  overflow:hidden;
+  height:420px;
+}
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:.6s;
+}
+
+.hero:hover img{
+  filter:grayscale(0%);
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.6);
+}
+
+body.dark-mode .hero-overlay{
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  background:rgba(255,255,255,0.9);
+  padding:45px;
+  border-radius:30px;
+}
+
+body.dark-mode .hero-content{
+  background:rgba(20,20,20,0.9);
+}
+
+.hero-content h1{
+  font-size:48px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.hero-content p{
+  color:#555;
+  font-size:18px;
+}
+
+body.dark-mode .hero-content p{
+  color:#ccc;
+}
+
+/* ================= LAYOUT ================= */
+.wrapper{
+  display:flex;
+  padding:80px 10%;
+  gap:60px;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  width:260px;
+  position:sticky;
+  top:100px;
+}
+
+.sidebar a{
+  display:block;
+  padding:12px 18px;
+  margin-bottom:10px;
+  text-decoration:none;
+  color:#444;
+  border-radius:25px;
+  font-weight:600;
+  transition:.3s;
+}
+
+body.dark-mode .sidebar a{
+  color:#ccc;
+}
+
+.sidebar a.active{
+  background:#333;
+  color:white;
+}
+
+/* ================= CONTENT ================= */
+.content{
+  flex:1;
+}
+
+.article{
+  background:#fff;
+  padding:40px;
+  border-radius:30px;
+  margin-bottom:80px;
+  transition:.3s;
+}
+
+body.dark-mode .article{
+  background:#5b5b5b;
+}
+
+.article h2{
+  font-size:30px;
+  margin-bottom:20px;
+}
+
+.article p{
+  line-height:1.8;
+  color:#555;
+  margin-bottom:25px;
+}
+
+body.dark-mode .article p{
+  color:#ccc;
+}
+
+.article img{
+  width:100%;
+  border-radius:25px;
+  filter:grayscale(100%);
+  transition:.5s;
+}
+
+.article img:hover{
+  filter:grayscale(0%);
+}
+
+/* ================= ABOUT VIDEO ================= */
+.about{
+  padding:90px 0;
+  text-align:center;
+}
+
+.video-box{
+  width:100%;
+  height:520px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+}
+
+.video-box video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:.5s;
+}
+
+.video-box:hover video{
+  filter:grayscale(0%);
+}
+
+.video-box::after{
+  content:"HOVER TO PLAY";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.9);
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:700;
+}
+
+.video-box:hover::after{
+  opacity:0;
+}
+
+/* ================= GALLERY ================= */
+.gallery{
+  padding:90px 10%;
+  text-align:center;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:45px;
+}
+
+.game-card{
+  position:relative;
+  border-radius:25px;
+  overflow:hidden;
+}
+
+.game-card img{
+  width:100%;
+  filter:grayscale(100%);
+  transition:.4s;
+}
+
+.game-card:hover img{
+  filter:grayscale(0%);
+  transform:scale(1.05);
+}
+
+.game-title{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.9);
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:700;
+  text-decoration:none;
+  color:#333;
+  opacity:0;
+  transition:.4s;
+}
+
+.game-card:hover .game-title{
+  opacity:1;
+}
+
+/* ================= FACTS ================= */
+.facts{
+  display:flex;
+  justify-content:space-around;
+  background:#333;
+  color:white;
+  padding:70px 10%;
+}
+
+.fact h3{
+  font-size:32px;
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info {
+  background: white;
+  color: black;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+body.dark-mode .contact-info {
+  background: #1e1e1e;
+  color: white;
+}
+
+.contact-info h2 {
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+/* ================= INFO GRID ================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ================= INFO CARD ================= */
+.info-card {
+  background: white;
+  color: black;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+body.dark-mode .info-card {
+  background: #2a2a2a;
+  color: white;
+}
+
+.info-card i {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+.info-card h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+body.dark-mode .info-card p {
+  color: #ccc;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* ================= SOCIAL LINKS ================= */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  background: rgb(115, 115, 115);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-links a img {
+  width: 40px;
+  height: 40px;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  background: dimgray;
+}
+
+body.dark-mode .social-links a {
+  background: white;
+}
+
+body.dark-mode .social-links a:hover {
+  background: lightgray;
+}
+
+/* ================= CONTACT FORM ================= */
+.contact-form {
+  background: #e5e5e5;
+  color: black;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+body.dark-mode .contact-form {
+  background: #2a2a2a;
+  color: white;
+}
+
+.contact-form h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row input {
+  width: 100%;
+}
+
+input,
+textarea {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  background: white;
+  color: black;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #1e1e1e;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #222;
+}
+
+body.dark-mode .btn-submit {
+  background: white;
+  color: black;
+}
+
+body.dark-mode .btn-submit:hover {
+  background: lightgray;
+}
+
+.back-btn {
+  display: block;                 
+  width: fit-content;
+  margin: 40px auto 0;             
+  padding: 12px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 
+    background-color 0.3s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.back-btn:hover {
+  background-color: dimgray;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px gray;
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px gray;
+}
+
+body.dark-mode .back-btn {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode .back-btn:hover {
+  background-color: lightgray;
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 8px;
+  background-color: dimgray;
+  color: white;
+  margin-top: 40px;
+}
+
+/* ================= BACK TO TOP ================= */
+.back-to-top{
+  position:fixed;
+  bottom:30px;
+  left:30px;
+  width:48px;
+  height:48px;
+  background:#333;
+  color:white;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:.4s;
+  z-index:999;
+}
+
+.back-to-top.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ===== EXPLORE NOW BUTTON STYLE (SAME AS GAME TITLE) ===== */
+.explore-btn {
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  background: #333;
+  color: rgb(129, 129, 129);
+}
+
+body.dark-mode .explore-btn {
+  background: rgba(30,30,30,0.9);
+  color: rgb(255, 255, 255);
+}
+
+body.dark-mode .explore-btn:hover {
+  background: white;
+  color: black;
+}
