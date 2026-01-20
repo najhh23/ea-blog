@@ -1,0 +1,198 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EA SPORTS | Gaming Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top" class="light-mode">
+
+<header>
+  <div class="nav-left">
+<a href="login.html">
+<img src="login.png" width="30" height="30">
+ </a>
+    <img src="logo.png" alt="EA SPORTS Logo" class="logo-img">
+    <h1><b><span class="logo-text">EA SPORTS | Gaming Blog</span></b></h1>
+  </div>
+
+  <nav>
+    <a href="review.html">Reviews</a>
+    <a href="games.html">Games</a>
+    <a href="video.html">Video</a>
+    <a href="about.html">Profile</a>
+  </nav>
+
+
+  <div class="nav-right">
+    <div id="datetime-container">
+      <span id="datetime"></span>
+      <button id="modeToggle">
+        <img id="modeIcon" src="dark.png" alt="mode">
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="nfs.png">
+  <div class="hero-content">
+    <h1>UNSTOPPABLE</h1>
+    <p>Where skills meet adrenaline.</p>
+    <a href="https://www.ea.com" target="_blank" class="explore-btn">Explore Now</a>
+  </div>
+</section>
+
+<section class="about">
+  <h2>WELCOME TO EA GAME</h2>
+  <p>Experience next-level gameplay and epic battles.</p>
+
+  <div class="video-box" id="videoBox"
+     data-link="https://www.ea.com/games/battlefield">
+
+    <video id="eaVideo" muted loop>
+      <source src="bfvideo.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>GAME GALLERY</h2>
+
+  <div class="gallery-grid">
+
+    <div class="game-card">
+      <img src="racc.jpg">
+      <a href="https://www.ea.com/games/command-and-conquer/command-and-conquer-red-alert-3"
+         target="_blank" class="game-title">Red Alert 3</a>
+    </div>
+
+    <div class="game-card">
+      <img src="pvz.jpg">
+      <a href="https://www.ea.com/games/plants-vs-zombies"
+         target="_blank" class="game-title">Plants vs Zombies</a>
+    </div>
+
+    <div class="game-card">
+      <img src="wh.jpg">
+      <a href="https://www.ea.com/games/wild-hearts"
+         target="_blank" class="game-title">Wild Hearts</a>
+    </div>
+
+    <div class="game-card">
+      <img src="apexx.jpg">
+      <a href="https://www.ea.com/games/apex-legends/apex-legends"
+         target="_blank" class="game-title">Apex Legends</a>
+    </div>
+
+    <div class="game-card">
+      <img src="sims.jpg">
+      <a href="https://www.ea.com/games/the-sims/the-sims-4-life-and-death-expansion-pack"
+         target="_blank" class="game-title">The Sims 4 Life & Death</a>
+    </div>
+
+    <div class="game-card">
+      <img src="mpi.jpg">
+      <a href="https://www.ea.com/games/mystery-pi/mystery-p-i-the-lottery-ticket"
+         target="_blank" class="game-title">Mystery P.I. - The Lottery Ticket</a>
+    </div>
+
+    <div class="game-card">
+      <img src="anthem.jpg">
+      <a href="https://www.ea.com/news/anthem-game-update"
+         target="_blank" class="game-title">Anthem</a>
+    </div>
+
+    <div class="game-card">
+      <img src="sf.jpg">
+      <a href="https://www.ea.com/games/split-fiction/split-fiction"
+         target="_blank" class="game-title">Split Fiction</a>
+    </div>
+
+    <div class="game-card">
+      <img src="bpr.jpg">
+      <a href="https://www.ea.com/games/burnout/burnout-paradise-remastered"
+         target="_blank" class="game-title">Burnout Paradise Remastered</a>
+    </div>
+
+  </div>
+</section>
+
+<a href="index.html" class="back-btn"> Back Home </a>
+</main><br>
+
+<section class="facts">
+  <div class="fact"><h3>90M+</h3><p>Players</p></div>
+  <div class="fact"><h3>1,500+</h3><p>Missions</p></div>
+  <div class="fact"><h3>400+</h3><p>Maps</p></div>
+  <div class="fact"><h3>300+</h3><p>Characters</p></div>
+</section>
+
+<footer>
+  <h6><i>© 2026 | EA SPORTS Gaming Blog</i></h6>
+</footer>
+
+<a href="#top" class="back-to-top">↑</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= SCROLL SPY + BACK TO TOP ================= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const backToTop = document.querySelector(".back-to-top");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (window.pageYOffset >= sectionTop) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+    });
+
+    backToTop.classList.toggle("show", window.scrollY > 400);
+  });
+
+  /* ================= DATE & TIME ================= */
+  function updateDateTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+    const time = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    document.getElementById("datetime").textContent = `${date} ${time}`;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+  /* ================= DARK MODE ================= */
+  const toggle = document.getElementById("modeToggle");
+  const icon = document.getElementById("modeIcon");
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+
+    icon.src = document.body.classList.contains("dark-mode")
+      ? "light.png"
+      : "dark.png";
+  });
+
+});
+</script>
+
+</body>
+</html>
